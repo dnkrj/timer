@@ -20,33 +20,37 @@ button {
 }
   
 .timer > svg {
-    width: 100vmin;
-    height: 100vmin;
+  width: 100vmin;
+  height: 100vmin;
 }
 
 .timer > svg > circle {
-    fill: none;
-    stroke-opacity: 0.1;
-    stroke: white;
-    stroke-width: 2;
-    transform-origin: center center;
-    transform: rotate(-90deg);
+  fill: none;
+  stroke-opacity: 0.1;
+  stroke: white;
+  stroke-width: 2;
+  transform-origin: center center;
+  transform: rotate(-90deg);
 }
 
 .timer > svg > circle + circle {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-    stroke-opacity: 1;
-    transition: stroke-dashoffset 0.3s ease;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  stroke-opacity: 1;
+  transition: stroke-dashoffset 0.3s ease;
 }
 
 .timer > svg > text,
 button {
-    font-size: 2rem;
+  font-size: 4rem;
 }
 
 button {
   position: fixed;
   padding: 50px;
   border: none;
+}
+
+button:hover {
+  cursor: pointer;
 }

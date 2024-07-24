@@ -1,15 +1,22 @@
 const poses = [
-  {length: 1 * 6, count: 5},
-  {length: 2 * 6, count: 5},
-  {length: 5 * 6, count: 3},
-  {length: 10 * 6, count: 2},
-  {length: 2 * 6, count: 5},
-  {length: 15 * 6, count: 3},
+  {length: 1 * 60, count: 5},
+  {length: 2 * 60, count: 5},
+  {length: 5 * 60, count: 3},
+  {length: 10 * 60, count: 2},
+  {length: 2 * 60, count: 5},
+  {length: 15 * 60, count: 3},
 ]
 
 const speak = (words) => {
   const utterance = new SpeechSynthesisUtterance(words);
   window.speechSynthesis.speak(utterance);
+}
+
+const secondsToTime = (seconds) => {
+    const m = Math.floor(seconds % 3600 / 60).toString().padStart(2,'0'),
+          s = Math.floor(seconds % 60).toString().padStart(2,'0');
+    
+    return m + ':' + s;
 }
 
 speak("Welcome to life drawing!");
@@ -38,7 +45,7 @@ function runTimer() {
       const timeRemaining = timeLeft--;
       const normalizedTime = (timerLength - timeRemaining) / timerLength;
       timerCircle.style.strokeDashoffset = normalizedTime;
-      timer.textContent = timeRemaining;
+      timer.textContent = secondsToTime(timeRemaining);
       if (timerLength >= 600 && timeLeft == timerLength / 2) {
         speak("Ding! That's the half way sound.");
       }
