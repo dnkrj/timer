@@ -12,11 +12,11 @@ const speak = (words) => {
   window.speechSynthesis.speak(utterance);
 }
 
-// speak("Welcome to life drawing!");
-// speak("The pose plan for todays session is:");
-// poses.forEach((pose) => {
-//   speak(`${pose.count} times ${pose.length / 60} minute${pose.length > 1 ? "s" : ""}.`);
-// });
+speak("Welcome to life drawing!");
+speak("The pose plan for todays session is:");
+poses.forEach((pose) => {
+  speak(`${pose.count} times ${pose.length / 60} minute${pose.length > 1 ? "s" : ""}.`);
+});
 
 speak(`${poses[0].length / 60} minute pose.`);
 speak("Let me know when you are ready.");
