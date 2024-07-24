@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Life Drawing</title>
+    <meta name="description" content="Timer for automated life drawing classes.">
+    <meta name="author" content="Daniel Karaj">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/index.css">
+  </head>
+  <body>
+    <section class="timer">
+      <svg>
+        <circle cx="50%" cy="50%" r="40%"/>
+        <circle cx="50%" cy="50%" r="40%" pathLength="1" />
+        <text x="50%" y="50%" text-anchor="middle"><tspan dominant-baseline="middle" id="timeLeft"></tspan></text>
+      </svg>
+      <button onclick="runTimer">Ready</button>
+    </section>
+
+    <script src="index.js"></script>
+  </body>
+</html>
