@@ -22,7 +22,6 @@ const secondsToTime = (seconds) => {
 const button = document.querySelector('button');
 
 function start() {
-  button.style.display = "none"
   speak("Welcome to life drawing!");
   speak("The pose plan for todays session is:");
   poses.forEach((pose) => {
@@ -31,8 +30,10 @@ function start() {
 
   speak(`${poses[0].length / 60} minute pose.`);
   speak("Let me know when you are ready.");
+
   button.textContent = "Ready"
-  button.style.display = "block"
+  button.removeEventListener('click', start)
+  button.addEventListener('click', runTimer)
 }
 
 function runTimer() {
