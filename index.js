@@ -19,18 +19,25 @@ const secondsToTime = (seconds) => {
     return m + ':' + s;
 }
 
-speak("Welcome to life drawing!");
-speak("The pose plan for todays session is:");
-poses.forEach((pose) => {
-  speak(`${pose.count} times ${pose.length / 60} minute${pose.length > 1 ? "s" : ""}.`);
-});
+const button = document.querySelector('button');
 
-speak(`${poses[0].length / 60} minute pose.`);
-speak("Let me know when you are ready.");
+function start() {
+  button.style.display = "none"
+  speak("Welcome to life drawing!");
+  speak("The pose plan for todays session is:");
+  poses.forEach((pose) => {
+    speak(`${pose.count} times ${pose.length / 60} minute${pose.length > 1 ? "s" : ""}.`);
+  });
+
+  speak(`${poses[0].length / 60} minute pose.`);
+  speak("Let me know when you are ready.");
+  button.textContent = "Ready"
+  button.style.display = "block"
+}
 
 function runTimer() {
   speak("Ready, set, go!");
-  document.querySelector('button').style.display = "none"
+  button.style.display = "none"
 
   let timerLength = poses[0].length;
   let timeLeft = timerLength;
@@ -64,14 +71,15 @@ function runTimer() {
         poses.shift()
         if (!poses.length) {
           speak("That's the end of the session, thank you very much for coming.")
+          return;
         }
         speak(`${poses[0].length / 60} minute pose.`);
       }
 
       speak("Let me know when you are ready.");
-      document.querySelector('button').style.display = "block"
+      button.style.display = "block"
     }  
   }, 1000);
 }
 
-document.querySelector('button').addEventListener('click', runTimer)
+button.addEventListener('click', start)
