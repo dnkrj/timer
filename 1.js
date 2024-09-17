@@ -3,8 +3,7 @@ const poses = [
   {length: 2 * 60, count: 5},
   {length: 5 * 60, count: 3},
   {length: 10 * 60, count: 2},
-  {length: 2 * 60, count: 5},
-  {length: 15 * 60, count: 3},
+  {length: 2 * 60, count: 1},
 ]
 
 const speak = (words) => {
@@ -20,10 +19,11 @@ const secondsToTime = (seconds) => {
 }
 
 const button = document.querySelector('button');
+const link = document.querySelector('a');
 
 function start() {
   speak("Welcome to life drawing!");
-  speak("The pose plan for todays session is:");
+  speak("The pose plan for the first half of todays session is:");
   poses.forEach((pose) => {
     speak(`${pose.count} times ${pose.length / 60} minute${pose.length > 1 ? "s" : ""}.`);
   });
@@ -34,6 +34,7 @@ function start() {
   button.textContent = "Ready"
   button.removeEventListener('click', start)
   button.addEventListener('click', runTimer)
+  link.style.display = "none"
 }
 
 function runTimer() {
@@ -70,8 +71,13 @@ function runTimer() {
         }
       } else {
         poses.shift()
+        if (poses.length == 1) {
+          speak("It's time for the weekly challenge.")
+        }
         if (!poses.length) {
-          speak("That's the end of the session, thank you very much for coming.")
+          speak("That's the end of the first half, it's time for a break. If you need to pay for the class, please do so now. The cost is £10. We have wine and crisps available so help yourself and please leave some of your work out so we can inspire each other.")
+          link.textContent = "Move to second half"
+          link.style.display = "block"
           return;
         }
         speak(`${poses[0].length / 60} minute pose.`);
