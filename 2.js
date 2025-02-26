@@ -67,7 +67,7 @@ function runTimer() {
       } else {
         poses.shift()
         if (!poses.length) {
-          speak("That's the end of the session, thank you very much for coming.")
+          speak("That's the end of the session, thank you very much for coming. We're going to the pub after, feel free to join.")
           return;
         }
         speak(`${poses[0].length / 60} minute pose.`);
