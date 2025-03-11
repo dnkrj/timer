@@ -75,7 +75,7 @@ function runTimer() {
           speak("It's time for the weekly challenge.")
         }
         if (!poses.length) {
-          speak("That's the end of the first half, it's time for a break. If you need to pay for the class, please add your email address to the list. The cost is £12. We have wine and crisps available so help yourself and please leave some of your work out so we can inspire each other.")
+          speak("That's the end of the first half, it's time for a break. If you need to pay for the class, please do so now. The cost is £12. We have wine and crisps available so help yourself and please leave some of your work out so we can inspire each other.")
           link.textContent = "Move to second half"
           link.style.display = "block"
           return;
