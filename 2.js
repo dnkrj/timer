@@ -60,8 +60,8 @@ function runTimer() {
 
       if (poses[0].count > 0) {
         speak("Next pose please.")
-        if (poses[0].length < 600) {
-          window.setTimeout(runTimer, 5000)
+        if (poses[0].length < 300) {
+          window.setTimeout(runTimer, 10000)
           return
         }
       } else {
